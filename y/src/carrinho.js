@@ -229,8 +229,11 @@ function atualizarCarrinho() {
         itemElement.innerHTML = `
             <span>${item.item}</span>
             <span>R$ ${item.preco.toFixed(2)}</span>
-            <button onclick="removerDoCarrinho(${index})">Remover</button>
         `;
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Remover';
+        removeButton.addEventListener('click', () => removerDoCarrinho(index));
+        itemElement.appendChild(removeButton);
         carrinhoElement.appendChild(itemElement);
         total += item.preco;
     });
