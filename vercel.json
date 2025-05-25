@@ -1,5 +1,1 @@
-{
-  "buildCommand": "cd y && npm install && npm run build",
-  "outputDirectory": "y/dist",
-  "framework": "vite"
-} 
+{} 
