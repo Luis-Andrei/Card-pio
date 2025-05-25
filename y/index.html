@@ -6,11 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cardápio Digital Animado</title>
     <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   </head>
   <body>
     <div class="container">
         <h1 class="title">Cardápio Lanceria 3 Aliança</h1>
-    
+        
+        <!-- Ícone do Carrinho -->
+        <div class="carrinho-icon" onclick="toggleCarrinho()">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="carrinho-count">0</span>
+        </div>
+
+        <!-- Carrinho de Compras -->
+        <div class="carrinho-container" style="display: none;">
+            <h2 class="carrinho-titulo">Carrinho de Compras</h2>
+            <div id="carrinho-items"></div>
+            <div id="carrinho-total" class="carrinho-total">Total: R$ 0,00</div>
+            <button id="finalizar-pedido" class="finalizar-pedido">Finalizar Pedido</button>
+        </div>
+
         <section class="menu-section">
             <h2 class="section-title">COMBOS PROMOCIONAIS</h2>
             <div class="menu-item">
@@ -144,25 +159,25 @@
 
         <section class="menu-section">
             <h2 class="section-title">Picadão FAMÍLIA</h2>
-            <p class="description">Inclui: pão, ovo, azeitona, batata frita, polenta, queijo, carne bovina, coração, frango, calabresa e anel de cebola.</p>
+            <p class="description">Inclui: ovo de codorna, azeitona, batata frita, polenta, queijo, carne bovina, coração, frango, calabresa e anel de cebola.</p>
             <div class="menu-item">
                 <h3>Para 1 pessoa</h3>
-                <p>Pão, ovo, azeitona, batata frita, polenta, queijo, carne bovina, coração, frango, calabresa e anel de cebola</p>
+                <p>Ovo de codorna, azeitona, batata frita, polenta, queijo, carne bovina, coração, frango, calabresa e anel de cebola</p>
                 <span class="price">R$ 65,00</span>
             </div>
             <div class="menu-item">
                 <h3>Para 2 pessoas</h3>
-                <p>Pão, ovo, azeitona, batata frita, polenta, queijo, carne bovina, coração, frango, calabresa e anel de cebola</p>
+                <p>Ovo de codorna, azeitona, batata frita, polenta, queijo, carne bovina, coração, frango, calabresa e anel de cebola</p>
                 <span class="price">R$ 95,00</span>
             </div>
             <div class="menu-item">
                 <h3>Para 3 pessoas</h3>
-                <p>Pão, ovo, azeitona, batata frita, polenta, queijo, carne bovina, coração, frango, calabresa e anel de cebola</p>
+                <p>Ovo de codorna, azeitona, batata frita, polenta, queijo, carne bovina, coração, frango, calabresa e anel de cebola</p>
                 <span class="price">R$ 120,00</span>
             </div>
             <div class="menu-item">
                 <h3>Para 4 pessoas</h3>
-                <p>Pão, ovo, azeitona, batata frita, polenta, queijo, carne bovina, coração, frango, calabresa e anel de cebola</p>
+                <p>Ovo de codorna, azeitona, batata frita, polenta, queijo, carne bovina, coração, frango, calabresa e anel de cebola</p>
                 <span class="price">R$ 160,00</span>
             </div>
         </section>
@@ -186,5 +201,6 @@
     
     <p class="copyright">Todos os Direitos reservados 2025 para Luis Andrei</p>
     <script type="module" src="src/main.js"></script>
+    <script src="src/carrinho.js"></script>
   </body>
 </html>
