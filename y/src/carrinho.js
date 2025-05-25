@@ -258,6 +258,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Adicionar evento de finalizar pedido
     document.getElementById('finalizar-pedido').addEventListener('click', finalizarPedido);
 
+    // Adicionar evento de clique no ícone do carrinho
+    document.querySelector('.carrinho-icon').addEventListener('click', toggleCarrinho);
+
     // Fechar carrinho ao clicar fora dele
     document.addEventListener('click', (event) => {
         const carrinhoContainer = document.querySelector('.carrinho-container');
