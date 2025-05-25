@@ -100,6 +100,13 @@
     padding: 20px;
 }
 
+.site-logo {
+    display: block; /* Para centralizar se a largura for menor que o container */
+    margin: 0 auto 20px auto; /* Centralizar e adicionar espaço abaixo */
+    max-width: 150px; /* Definir uma largura máxima */
+    height: auto; /* Manter a proporção da imagem */
+}
+
 /* Estilização da barra de rolagem do carrinho */
 #carrinho-items::-webkit-scrollbar {
     height: 6px;
@@ -342,4 +349,77 @@
     width: 18px;
     height: 18px;
     accent-color: #4CAF50;
+}
+
+/* Estilos para Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px; /* Ajuste o padding para telas menores */
+    }
+
+    .title {
+        font-size: 1.8em; /* Reduzir o tamanho do título principal */
+    }
+
+    .section-title {
+        font-size: 1.4em; /* Reduzir o tamanho dos títulos de seção */
+    }
+
+    /* Ajustar o layout dos itens do menu se necessário */
+    .menu-section .menu-item {
+        /* Geralmente eles já se empilham por padrão, mas se houver display flex ou grid aqui, pode precisar ajustar */
+    }
+
+    /* Ajustar a largura máxima de elementos como o logo */
+     .site-logo {
+         max-width: 120px; /* Reduzir o tamanho máximo do logo */
+     }
+
+     /* Ajustar o tamanho do carrinho ou sua posição se necessário */
+     .carrinho-container {
+         width: 95%; /* Aumentar a largura do carrinho em telas menores */
+         right: 2.5%; /* Centralizar o carrinho */
+         top: 70px; /* Ajustar a posição vertical */
+         max-height: 85vh;
+         padding: 15px;
+     }
+
+     .carrinho-icon {
+        width: 45px;
+        height: 45px;
+        top: 15px;
+        right: 15px;
+     }
+
+     .carrinho-icon i {
+         font-size: 20px;
+     }
+
+     .carrinho-count {
+         width: 20px;
+         height: 20px;
+         font-size: 11px;
+     }
+
+     /* Ajustar o tamanho dos botões, se necessário */
+     .adicionar-carrinho,
+     .finalizar-pedido {
+         padding: 10px; /* Reduzir o padding dos botões */
+         font-size: 1em; /* Ajustar o tamanho da fonte */
+     }
+
+     /* Ajustar o diálogo de pagamento/bairro */
+     .forma-pagamento-content,
+     .selecionar-bairro-content {
+        padding: 15px;
+     }
+
+     .formas-pagamento label,
+     .lista-bairros label {
+        padding: 8px;
+     }
+
+     .dialog-buttons button {
+        padding: 8px 15px;
+     }
 }
