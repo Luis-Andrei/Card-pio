@@ -197,22 +197,18 @@ Obrigado pela preferência!
 Lanceria 3 Aliança
 `;
 
-    const confirmacao = confirm(mensagem + '\n\nDeseja enviar o pedido para o WhatsApp?');
+    // Formatar a mensagem para o WhatsApp
+    const mensagemWhatsApp = encodeURIComponent(mensagem);
+    const linkWhatsApp = `https://wa.me/5551995304159?text=${mensagemWhatsApp}`;
     
-    if (confirmacao) {
-        // Formatar a mensagem para o WhatsApp
-        const mensagemWhatsApp = encodeURIComponent(mensagem);
-        const linkWhatsApp = `https://wa.me/5551995304159?text=${mensagemWhatsApp}`;
-        
-        // Abrir o WhatsApp em uma nova aba
-        window.open(linkWhatsApp, '_blank');
-        
-        // Limpar o carrinho após enviar
-        carrinho = [];
-        atualizarCarrinho();
-        atualizarContador();
-        document.querySelector('.carrinho-container').style.display = 'none';
-    }
+    // Abrir o WhatsApp em uma nova aba
+    window.open(linkWhatsApp, '_blank');
+    
+    // Limpar o carrinho após enviar
+    carrinho = [];
+    atualizarCarrinho();
+    atualizarContador();
+    document.querySelector('.carrinho-container').style.display = 'none';
 }
 
 function atualizarCarrinho() {
