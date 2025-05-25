@@ -207,7 +207,7 @@
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
-    display: flex;
+  display: flex;
     justify-content: center;
     align-items: center;
     z-index: 2000;
@@ -225,7 +225,7 @@
 .forma-pagamento-content h3 {
     margin: 0 0 20px 0;
     color: #333;
-    text-align: center;
+  text-align: center;
     font-size: 1.2em;
 }
 
@@ -334,8 +334,8 @@
     gap: 10px;
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 8px;
-    cursor: pointer;
+  border-radius: 8px;
+  cursor: pointer;
     transition: all 0.3s ease;
     color: #333;
 }
@@ -399,7 +399,7 @@
          width: 20px;
          height: 20px;
          font-size: 11px;
-     }
+  }
 
      /* Ajustar o tamanho dos botões, se necessário */
      .adicionar-carrinho,
@@ -421,5 +421,5 @@
 
      .dialog-buttons button {
         padding: 8px 15px;
-     }
+  }
 }
