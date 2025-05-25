@@ -244,7 +244,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuItems = document.querySelectorAll('.menu-item');
     menuItems.forEach(item => {
         const nome = item.querySelector('h3').textContent;
-        const preco = parseFloat(item.querySelector('.price').textContent.replace('R$ ', '').replace(',', '.'));
+        const precoText = item.querySelector('.price').textContent;
+        const preco = parseFloat(precoText.replace('Valor: R$ ', '').replace('R$ ', '').replace(',', '.'));
         const descricao = item.querySelector('p') ? item.querySelector('p').textContent : '';
         
         const botao = document.createElement('button');
