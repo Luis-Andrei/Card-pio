@@ -11,7 +11,7 @@ const bairros = [
     { nome: 'Alesgut', valor: 11.00 },
     { nome: 'Linha Frank', valor: 12.00 },
     { nome: 'Teutônia', valor: 10.00 },
-    { nome: 'Bairro Linha Harmonia', valor: 15.00 }
+    { nome: 'Bairro Linha Harmonia', valor: 20.00 }
 ];
 
 function toggleCarrinho() {
