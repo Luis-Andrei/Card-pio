@@ -25,7 +25,7 @@ Um cardápio digital moderno e interativo desenvolvido com HTML e CSS, apresenta
 1. Clone este repositório
 2. Abra o terminal na pasta do projeto
 3. Execute o comando:
-   ```
+   ```bash
    python -m http.server
    ```
 4. Acesse no navegador:
