@@ -248,7 +248,7 @@ function popularAvaliacoesIniciais(nomesPratos) {
                 const nome = nomesDisponiveis.splice(indiceNome, 1)[0];
                 
                 // Gera uma data mais realista (entre alguns dias atrás e hoje)
-                const diasAtras = Math.floor(Math.random() * 30); // Até 30 dias atrás
+                const diasAtras = Math.floor(Math.random() * 4); // Datas de hoje até 3 dias atrás
                 const dataAvaliacao = new Date(Date.now() - diasAtras * 86400000).toISOString();
 
                 avaliacoes[nomePrato].push({
