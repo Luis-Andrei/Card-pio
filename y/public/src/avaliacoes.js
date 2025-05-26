@@ -27,6 +27,41 @@ const comentariosDetalhadosIniciais = [
     "Pedido simples e rápido, ideal para uma refeição rápida."
 ];
 
+// Novas listas de comentários por categoria
+const comentariosPorCategoria = {
+    "Xis": [
+        "O xis é simplesmente o melhor que já comi na vida! Atendimento rápido e super educado. Recomendo muito! 🍔👌",
+        "Perfeito para o fim de semana. O Xis Tudo é uma explosão de sabores.",
+        "Muito bom, lanche bem recheado! 👍",
+        "Faltou um pouco de sal na batata, mas o Xis compensou, muito saboroso!",
+        "O Xis salada é leve e saboroso, uma ótima opção!",
+        "Simplesmente o melhor Xis da região, ingredientes frescos e de qualidade."
+    ],
+    "Cachorro-Quente": [
+        "Gostei bastante do cachorro-quente, só achei que podia ter um pouco mais de maionese, mas no geral tudo perfeito.",
+        "Cachorro-quente bem montado e delicioso, chegou quentinho.",
+        "Ótimo custo-benefício no cachorro-quente, bem servido.",
+        "Sabor de infância, o cachorro-quente é caprichado!",
+        "Pedi o cachorro-quente especial e adorei cada mordida."
+    ],
+    "Porção": [
+        "Entrega super rápida, tudo fresquinho. A batata frita estava crocante e saborosa. Vou pedir de novo com certeza!",
+        "A porção de picadão família vale muito a pena, dá pra alimentar todo mundo! Só o refrigerante que poderia estar mais gelado.",
+        "Chegou super rápido! A batata frita estava quentinha e crocante.",
+        "Porção generosa e muito saborosa, ideal para compartilhar.",
+        "Adorei a porção de aipim, sequinha e crocante!"
+    ],
+    "Geral": [
+        "Muito bommm, chegou antes do previsto! Voces arrasam!",
+        "Delicioso e bem servido. Primeira vez pedindo, virei cliente.",
+        "Excelente qualidade e sabor. As estrelas fazem jus!",
+        "Adorei a opção de retirada em loja, super prático e sem custo de entrega. O lanche estava quentinho.",
+        "Saboroso como sempre! O pedido veio certinho e a embalagem é boa.",
+        "O atendimento pelo WhatsApp foi excelente, muito atenciosos.",
+        "Pedido simples e rápido, ideal para uma refeição rápida."
+    ]
+};
+
 function mostrarDialogAvaliacao(nomePrato) {
     const dialog = document.createElement('div');
     dialog.className = 'avaliacao-dialog';
@@ -224,7 +259,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function popularAvaliacoesIniciais(nomesPratos) {
     // Use a lista de comentários mais detalhados e nomes comuns para as avaliações iniciais
-    const comentariosParaUsar = [...comentariosDetalhadosIniciais];
+    // Determine a categoria do prato
+    const determinarCategoria = (nomePrato) => {
+        if (nomePrato.toLowerCase().includes('xis')) return 'Xis';
+        if (nomePrato.toLowerCase().includes('cachorro-quente')) return 'Cachorro-Quente';
+        if (nomePrato.toLowerCase().includes('porção') || nomePrato.toLowerCase().includes('batata')) return 'Porção';
+        return 'Geral'; // Categoria padrão
+    };
+
     const nomesParaUsar = [...nomesIniciais];
 
     nomesPratos.forEach(nomePrato => {
@@ -232,20 +274,28 @@ function popularAvaliacoesIniciais(nomesPratos) {
             avaliacoes[nomePrato] = [];
             const numAvaliacoes = Math.floor(Math.random() * 2) + 5; // 5 a 6 avaliações
             
-            let comentariosDisponiveis = [...comentariosParaUsar]; // Copia da lista de comentários
+            const categoria = determinarCategoria(nomePrato);
+            const comentariosDisponiveis = [...(comentariosPorCategoria[categoria] || comentariosPorCategoria['Geral'])]; // Copia da lista de comentários da categoria ou geral
             let nomesDisponiveis = [...nomesParaUsar]; // Copia da lista de nomes
+
+            // Embaralha os comentários para garantir variedade
+            for (let i = comentariosDisponiveis.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [comentariosDisponiveis[i], comentariosDisponiveis[j]] = [comentariosDisponiveis[j], comentariosDisponiveis[i]];
+            }
 
             for (let i = 0; i < numAvaliacoes; i++) {
                 if (comentariosDisponiveis.length === 0 || nomesDisponiveis.length === 0) break; // Para se acabarem comentários ou nomes
 
                 const valor = Math.floor(Math.random() * 3) + 3; // 3 a 5 estrelas
                 
-                // Seleciona e remove um comentário e um nome aleatoriamente
-                const indiceComentario = Math.floor(Math.random() * comentariosDisponiveis.length);
-                const comentario = comentariosDisponiveis.splice(indiceComentario, 1)[0];
+                // Seleciona e remove um comentário e um nome sequencialmente (ou aleatoriamente, mas sequencial evita repetição rápida)
+                // Usando splice para remover e pegar o elemento
+                const comentario = comentariosDisponiveis.splice(0, 1)[0]; // Pega o primeiro e remove
 
-                const indiceNome = Math.floor(Math.random() * nomesDisponiveis.length);
-                const nome = nomesDisponiveis.splice(indiceNome, 1)[0];
+                // Embaralha os nomes e pega um
+                 const indiceNome = Math.floor(Math.random() * nomesDisponiveis.length);
+                 const nome = nomesDisponiveis.splice(indiceNome, 1)[0];
                 
                 // Gera uma data mais realista (entre alguns dias atrás e hoje)
                 const diasAtras = Math.floor(Math.random() * 4); // Datas de hoje até 3 dias atrás
