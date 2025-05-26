@@ -28,10 +28,15 @@ function mostrarDialogAvaliacao(nomePrato) {
             const valor = parseInt(estrela.dataset.valor);
             estrelas.forEach(e => {
                 e.style.color = parseInt(e.dataset.valor) <= valor ? '#FFD700' : '#ccc';
+                e.style.transform = parseInt(e.dataset.valor) <= valor ? 'scale(1.2)' : 'scale(1)';
             });
         });
         estrela.addEventListener('click', () => {
             dialog.dataset.avaliacao = estrela.dataset.valor;
+            estrelas.forEach(e => {
+                e.style.color = parseInt(e.dataset.valor) <= valor ? '#FFD700' : '#ccc';
+                e.style.transform = parseInt(e.dataset.valor) <= valor ? 'scale(1.2)' : 'scale(1)';
+            });
         });
     });
 
@@ -39,8 +44,14 @@ function mostrarDialogAvaliacao(nomePrato) {
         const valorAtual = dialog.dataset.avaliacao || 0;
         estrelas.forEach(e => {
             e.style.color = parseInt(e.dataset.valor) <= valorAtual ? '#FFD700' : '#ccc';
+            e.style.transform = parseInt(e.dataset.valor) <= valorAtual ? 'scale(1.2)' : 'scale(1)';
         });
     });
+
+    // Focar no textarea
+    setTimeout(() => {
+        dialog.querySelector('.comentario-avaliacao').focus();
+    }, 100);
 }
 
 function enviarAvaliacao(nomePrato) {
@@ -66,12 +77,25 @@ function enviarAvaliacao(nomePrato) {
     localStorage.setItem('avaliacoes', JSON.stringify(avaliacoes));
     fecharDialogAvaliacao();
     atualizarMediaAvaliacoes(nomePrato);
+    
+    // Mostrar mensagem de sucesso
+    const mensagem = document.createElement('div');
+    mensagem.className = 'mensagem-sucesso';
+    mensagem.textContent = 'Avaliação enviada com sucesso!';
+    document.body.appendChild(mensagem);
+    
+    setTimeout(() => {
+        mensagem.remove();
+    }, 3000);
 }
 
 function fecharDialogAvaliacao() {
     const dialog = document.querySelector('.avaliacao-dialog');
     if (dialog) {
-        document.body.removeChild(dialog);
+        dialog.style.opacity = '0';
+        setTimeout(() => {
+            document.body.removeChild(dialog);
+        }, 300);
     }
 }
 
@@ -90,6 +114,7 @@ function atualizarMediaAvaliacoes(nomePrato) {
                 `).join('')}
             </div>
             <span class="media-valor">(${media.toFixed(1)})</span>
+            <span class="contador-avaliacoes">${pratoAvaliacoes.length} avaliação${pratoAvaliacoes.length !== 1 ? 'ões' : ''}</span>
         `;
     }
 }

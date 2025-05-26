@@ -371,108 +371,198 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
 }
 
 .avaliacao-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
+    background: var(--background-light);
+    padding: 30px;
+    border-radius: 15px;
     width: 90%;
     max-width: 400px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+    animation: slideUp 0.4s ease;
+}
+
+.avaliacao-content h3 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .estrelas {
     display: flex;
     justify-content: center;
-    gap: 5px;
-    margin: 15px 0;
+    gap: 8px;
+    margin: 20px 0;
 }
 
 .estrela {
-    font-size: 30px;
+    font-size: 35px;
     color: #ccc;
     cursor: pointer;
-    transition: color 0.2s;
+    transition: all 0.3s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .estrela:hover {
     color: #FFD700;
+    transform: scale(1.2);
 }
 
 .comentario-avaliacao {
     width: 100%;
-    height: 100px;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    height: 120px;
+    padding: 15px;
+    margin: 15px 0;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
     resize: none;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.comentario-avaliacao:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
 }
 
 .dialog-buttons {
     display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 15px;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .dialog-buttons button {
-    padding: 8px 16px;
+    padding: 12px 25px;
     border: none;
-    border-radius: 4px;
+    border-radius: 25px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .dialog-buttons button:first-child {
-    background-color: #4CAF50;
+    background: linear-gradient(45deg, #4CAF50, #45a049);
     color: white;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
 }
 
 .dialog-buttons button:last-child {
-    background-color: #f44336;
+    background: linear-gradient(45deg, #f44336, #e53935);
     color: white;
+    box-shadow: 0 4px 15px rgba(244, 67, 54, 0.3);
+}
+
+.dialog-buttons button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .media-avaliacao {
     display: flex;
     align-items: center;
-    gap: 5px;
-    margin: 5px 0;
+    gap: 8px;
+    margin: 10px 0;
+    padding: 8px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
 }
 
 .estrelas-media {
     display: flex;
-    gap: 2px;
+    gap: 3px;
 }
 
 .estrelas-media .estrela {
-    font-size: 16px;
+    font-size: 18px;
     cursor: default;
 }
 
 .media-valor {
-    font-size: 14px;
-    color: #666;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.contador-avaliacoes {
+    font-size: 0.8rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-left: 5px;
 }
 
 .avaliar-prato {
-    background-color: #2196F3;
+    background: linear-gradient(45deg, #2196F3, #1976D2);
     color: white;
     border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
+    padding: 8px 20px;
+    border-radius: 20px;
     cursor: pointer;
-    margin-top: 5px;
-    transition: background-color 0.2s;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
 }
 
 .avaliar-prato:hover {
-    background-color: #1976D2;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.mensagem-sucesso {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+    animation: slideUp 0.4s ease, fadeOut 0.4s ease 2.6s forwards;
+    z-index: 1001;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
 } 
