@@ -34,7 +34,7 @@ const comentariosPorCategoria = {
         "Perfeito para o fim de semana. O Xis Tudo é uma explosão de sabores.",
         "Muito bom, lanche bem recheado! 👍",
         "Faltou um pouco de sal na batata, mas o Xis compensou, muito saboroso!",
-        "O Xis salada é leve e saboroso, uma ótima opção!",
+        "O Xis é leve e saboroso, uma ótima opção!",
         "Simplesmente o melhor Xis da região, ingredientes frescos e de qualidade."
     ],
     "Cachorro-Quente": [
@@ -49,7 +49,7 @@ const comentariosPorCategoria = {
         "A porção de picadão família vale muito a pena, dá pra alimentar todo mundo! Só o refrigerante que poderia estar mais gelado.",
         "Chegou super rápido! A batata frita estava quentinha e crocante.",
         "Porção generosa e muito saborosa, ideal para compartilhar.",
-        "Adorei a porção de aipim, sequinha e crocante!"
+        "Adorei a porção de batata frita, sequinha e crocante!"
     ],
     "Geral": [
         "Muito bommm, chegou antes do previsto! Voces arrasam!",
