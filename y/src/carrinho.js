@@ -2,6 +2,7 @@
 let carrinho = [];
 
 const bairros = [
+    { nome: 'Retirada em Loja', valor: 0.00 },
     { nome: 'Canabarro', valor: 5.00 },
     { nome: 'Centro', valor: 6.00 },
     { nome: 'Centro Administrativo', valor: 7.00 },
