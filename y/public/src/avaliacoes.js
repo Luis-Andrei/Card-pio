@@ -190,7 +190,7 @@ function atualizarMediaAvaliacoes(nomePrato) {
                     `).join('')}
                 </div>
                 ${av.comentario ? `<p class="comentario">${av.comentario}</p>` : ''}
-                <span class="data-avaliacao"><strong class="nome-avaliador">${av.nome}</strong> — <span class="data-texto">${formatarDataAvaliacao(av.data)}</span></span>
+                <span class="data-avaliacao"><strong class="nome-avaliador">${av.nome || 'Anônimo'}</strong> — <span class="data-texto">${av.data ? formatarDataAvaliacao(av.data) : 'Sem data'}</span></span>
             </div>
         `).join('');
         
