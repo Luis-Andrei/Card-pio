@@ -116,6 +116,36 @@ function atualizarMediaAvaliacoes(nomePrato) {
             <span class="media-valor">(${media.toFixed(1)})</span>
             <span class="contador-avaliacoes">${pratoAvaliacoes.length} avaliação${pratoAvaliacoes.length !== 1 ? 'ões' : ''}</span>
         `;
+
+        // Adicionar últimas avaliações
+        const ultimasAvaliacoes = pratoAvaliacoes.slice(-2).reverse();
+        const ultimasAvaliacoesHTML = ultimasAvaliacoes.map(av => `
+            <div class="ultima-avaliacao">
+                <div class="estrelas-avaliacao">
+                    ${[1, 2, 3, 4, 5].map(num => `
+                        <span class="estrela" style="color: ${num <= av.valor ? '#FFD700' : '#ccc'}">★</span>
+                    `).join('')}
+                </div>
+                ${av.comentario ? `<p class="comentario">${av.comentario}</p>` : ''}
+                <span class="data-avaliacao">${new Date(av.data).toLocaleDateString()}</span>
+            </div>
+        `).join('');
+
+        const ultimasAvaliacoesContainer = document.createElement('div');
+        ultimasAvaliacoesContainer.className = 'ultimas-avaliacoes';
+        ultimasAvaliacoesContainer.innerHTML = ultimasAvaliacoesHTML;
+        
+        // Remover container anterior se existir
+        const containerAnterior = document.querySelector(`[data-prato="${nomePrato}"] .ultimas-avaliacoes`);
+        if (containerAnterior) {
+            containerAnterior.remove();
+        }
+        
+        // Adicionar após o botão de adicionar ao carrinho
+        const botaoCarrinho = document.querySelector(`[data-prato="${nomePrato}"] .adicionar-carrinho`);
+        if (botaoCarrinho) {
+            botaoCarrinho.parentNode.insertBefore(ultimasAvaliacoesContainer, botaoCarrinho.nextSibling);
+        }
     }
 }
 
