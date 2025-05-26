@@ -1,96 +1,68 @@
-# Cardápio Digital Animado
+# Cardápio Digital
 
-Um cardápio digital moderno e interativo desenvolvido com HTML, CSS e JavaScript, apresentando um design elegante, animações suaves e funcionalidades de pedido online.
+Um cardápio digital interativo para restaurantes, desenvolvido com HTML, CSS e JavaScript.
 
-## ✨ Características
+## 🚀 Funcionalidades
 
-* Design moderno com efeito de vidro fosco (glassmorphism)
-* Animações suaves e interativas
-* Layout totalmente responsivo
-* Tipografia clara e legível
-* Efeitos de hover nos itens do menu
-* Preços com destaque e animação
-* Organização clara por categorias
-* Carrinho de compras interativo
-* Seleção de bairros para entrega
-* Múltiplas formas de pagamento
-* Integração direta com WhatsApp
-* Sistema de pedidos automatizado
+- **Cardápio Digital**: Exibição de produtos com imagens, descrições e preços
+- **Sistema de Avaliações**: 
+  - Avaliação por estrelas (1-5)
+  - Comentários opcionais
+  - Exibição das últimas avaliações positivas (4-5 estrelas)
+  - Média geral de avaliações
+- **Carrinho de Compras**:
+  - Adição/remoção de itens
+  - Cálculo de total
+  - Opções de entrega e retirada em loja
+  - Cálculo de taxa de entrega por bairro
+- **Design Responsivo**: Adaptado para diferentes tamanhos de tela
 
 ## 🛠️ Tecnologias Utilizadas
 
-* HTML5
-* CSS3
-* JavaScript (ES6+)
-* Google Fonts (Montserrat)
-* Animações CSS
-* Design Responsivo
-* Vite (Build Tool)
+- HTML5
+- CSS3
+- JavaScript (Vanilla)
+- LocalStorage para persistência de dados
+- Git para controle de versão
+- GitHub para hospedagem do código
+- Vercel para deploy
 
-## 🚀 Como Executar
+## 📦 Instalação
 
-1. Clone este repositório
-2. Abra o terminal na pasta do projeto
-3. Execute o comando:  
+1. Clone o repositório:
 ```bash
-npm install
-npm run dev
-```
-4. Acesse no navegador:  
-```
-http://localhost:5173
+git clone https://github.com/Luis-Andrei/Card-pio.git
 ```
 
-## 📁 Estrutura do Projeto
+2. Navegue até o diretório do projeto:
+```bash
+cd Card-pio
+```
 
-O projeto está localizado na pasta `y/` com os seguintes arquivos:
+3. Abra o arquivo `index.html` em seu navegador ou use um servidor local.
 
-* `index.html` - Estrutura do cardápio
-* `src/styles.css` - Estilos e animações
-* `src/main.js` - Lógica principal
-* `src/carrinho.js` - Gerenciamento do carrinho
+## 🌐 Deploy
 
-## 🛒 Funcionalidades do Carrinho
+O projeto está hospedado na Vercel e pode ser acessado em: [Link do Deploy]
 
-* Adição e remoção de itens
-* Cálculo automático do total
-* Seleção de bairro para entrega
-* Escolha de forma de pagamento
-* Integração com WhatsApp para finalização do pedido
-* Sistema de frete por bairro
-* Geração automática de número do pedido
+## 🤝 Contribuindo
 
-## 📋 Categorias do Cardápio
+Contribuições são sempre bem-vindas! Para contribuir:
 
-* Combos Promocionais
-* Xis
-* Cachorro-Quente
-* Acompanhamentos
-* Porções de Batata Frita
-* Picadão Família
-* Bebidas
-
-## 🎨 Personalização
-
-O cardápio pode ser facilmente personalizado editando os arquivos:
-
-* Modifique os preços e itens em `index.html`
-* Ajuste cores e estilos em `src/styles.css`
-* Configure bairros e valores de entrega em `src/carrinho.js`
-
-## 🔗 Links Úteis
-
-* [Site do Projeto](https://card-pio-six.vercel.app)
-* [Código Fonte](y/)
-
-## 🤝 Contribuição
-
-Sinta-se à vontade para contribuir com melhorias através de pull requests.
+1. Faça um Fork do projeto
+2. Crie uma Branch para sua Feature (`git checkout -b feature/AmazingFeature`)
+3. Faça o Commit das suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Faça o Push para a Branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
 
 ## 📝 Licença
 
-Este projeto está sob a licença MIT.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-## 📞 Contato
+## ✨ Próximas Atualizações
 
-Desenvolvido para Lanceria 3 Aliança - Cardápio Digital 
+- [ ] Sistema de login para clientes
+- [ ] Histórico de pedidos
+- [ ] Integração com WhatsApp para pedidos
+- [ ] Área administrativa para gestão do cardápio
+- [ ] Sistema de cupons de desconto 
