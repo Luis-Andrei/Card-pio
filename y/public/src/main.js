@@ -1,7 +1,8 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import { setupCounter } from './counter.js'
-import './carrinho.js'
+// import './style.css' // Mantido se style.css for um módulo ou importado em outro lugar
+// import javascriptLogo from './javascript.svg' // Removido: SVG não é módulo JS
+// import { setupCounter } from './counter.js' // Removido: não parece ser usado
+// import './carrinho.js' // Removido: já incluído via script tag no HTML
+// import './avaliacoes.js' // Removido: já incluído via script tag no HTML
 
 // O conteúdo do cardápio está no index.html
 
