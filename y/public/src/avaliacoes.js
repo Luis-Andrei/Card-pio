@@ -31,7 +31,7 @@ const comentariosDetalhadosIniciais = [
 const comentariosPorCategoria = {
     "Xis": [
         "O xis é simplesmente o melhor que já comi na vida! Atendimento rápido e super educado. Recomendo muito! 🍔👌",
-        "Perfeito para o fim de semana. O Xis Tudo é uma explosão de sabores.",
+        "Perfeito para o fim de semana. O Xis é uma explosão de sabores.",
         "Muito bom, lanche bem recheado! 👍",
         "Faltou um pouco de sal na batata, mas o Xis compensou, muito saboroso!",
         "O Xis é leve e saboroso, uma ótima opção!",
