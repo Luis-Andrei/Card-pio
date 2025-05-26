@@ -279,19 +279,23 @@ function mostrarDesafioVisual() {
     document.getElementById('desafio-modal').style.display = 'flex';
     document.getElementById('cor-correta').textContent = corCorreta.charAt(0).toUpperCase() + corCorreta.slice(1);
     document.getElementById('cor-correta').style.color = corCorreta;
-    document.querySelectorAll('.captcha-square').forEach(square => {
-        square.dataset.color = cores[Math.floor(Math.random() * cores.length)];
-        square.style.background = square.dataset.color;
+    
+    // Embaralhar as cores dos quadrados
+    const quadrados = document.querySelectorAll('.captcha-square');
+    const coresEmbaralhadas = [...cores].sort(() => Math.random() - 0.5);
+    quadrados.forEach((square, index) => {
+        square.dataset.color = coresEmbaralhadas[index];
+        square.style.background = coresEmbaralhadas[index];
     });
 }
+
 function esconderDesafioVisual() {
     document.getElementById('desafio-modal').style.display = 'none';
 }
+
 function liberarFinalizarPedido() {
     document.getElementById('finalizar-pedido').style.display = '';
-    document.getElementById('recaptcha-container').style.display = 'none';
 }
-window.onRecaptchaSuccess = liberarFinalizarPedido;
 
 document.addEventListener('DOMContentLoaded', function() {
     // Desafio visual
@@ -302,20 +306,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 esconderDesafioVisual();
                 liberarFinalizarPedido();
             } else {
+                // Embaralhar novamente as cores ao errar
+                mostrarDesafioVisual();
                 alert('Tente novamente!');
             }
         });
     });
+
     // Mostrar desafio visual ao tentar finalizar pedido
     var btn = document.getElementById('finalizar-pedido');
     if (btn) {
         btn.style.display = 'none';
     }
-    // Mostrar desafio visual ou recaptcha ao tentar finalizar
-    var recaptcha = document.getElementById('recaptcha-container');
-    if (recaptcha) {
-        recaptcha.style.display = '';
-    }
+
     // Só mostrar botão após interação do usuário
     let liberado = false;
     function liberarPorInteracao() {
