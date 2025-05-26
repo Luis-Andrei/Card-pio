@@ -206,9 +206,17 @@ function popularAvaliacoesIniciais(nomesPratos) {
         if (!avaliacoes[nomePrato] || avaliacoes[nomePrato].length === 0) {
             avaliacoes[nomePrato] = [];
             const numAvaliacoes = Math.floor(Math.random() * 2) + 5; // 5 a 6 avaliações
+            
+            let comentariosDisponiveis = [...comentariosIniciais]; // Copia da lista de comentários
+
             for (let i = 0; i < numAvaliacoes; i++) {
+                if (comentariosDisponiveis.length === 0) break; // Para se acabarem os comentários
+
                 const valor = Math.floor(Math.random() * 3) + 3; // 3 a 5 estrelas
-                const comentario = comentariosIniciais[Math.floor(Math.random() * comentariosIniciais.length)];
+                
+                const indiceAleatorio = Math.floor(Math.random() * comentariosDisponiveis.length);
+                const comentario = comentariosDisponiveis.splice(indiceAleatorio, 1)[0]; // Seleciona e remove o comentário
+                
                 avaliacoes[nomePrato].push({
                     valor,
                     comentario,
