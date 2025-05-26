@@ -274,7 +274,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // --- Proteção anti-bot ---
 function mostrarDesafioVisual() {
+    const cores = ['blue', 'red', 'green'];
+    const corCorreta = cores[Math.floor(Math.random() * cores.length)];
     document.getElementById('desafio-modal').style.display = 'flex';
+    document.getElementById('cor-correta').textContent = corCorreta.charAt(0).toUpperCase() + corCorreta.slice(1);
+    document.getElementById('cor-correta').style.color = corCorreta;
+    document.querySelectorAll('.captcha-square').forEach(square => {
+        square.dataset.color = cores[Math.floor(Math.random() * cores.length)];
+        square.style.background = square.dataset.color;
+    });
 }
 function esconderDesafioVisual() {
     document.getElementById('desafio-modal').style.display = 'none';
@@ -289,7 +297,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Desafio visual
     document.querySelectorAll('.captcha-square').forEach(function(square) {
         square.addEventListener('click', function() {
-            if (this.dataset.color === 'blue') {
+            const corCorreta = document.getElementById('cor-correta').textContent.toLowerCase();
+            if (this.dataset.color === corCorreta) {
                 esconderDesafioVisual();
                 liberarFinalizarPedido();
             } else {
