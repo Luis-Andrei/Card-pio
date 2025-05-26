@@ -268,7 +268,17 @@ function popularAvaliacoesIniciais(nomesPratos) {
 
 // Função auxiliar para formatar a data de exibição (pode ser melhorada para "há X dias")
 function formatarDataAvaliacao(dataISO) {
+    // Verifica se o input é uma string e não está vazio
+    if (typeof dataISO !== 'string' || dataISO === '') {
+        return "Data inválida"; // Retorna um texto indicativo ou vazio
+    }
+
     const data = new Date(dataISO);
+    // Verifica se a data criada é válida
+    if (isNaN(data.getTime())) {
+        return "Data inválida";
+    }
+
     const agora = new Date();
     const diferencaEmDias = Math.floor((agora - data) / (1000 * 60 * 60 * 24));
 
