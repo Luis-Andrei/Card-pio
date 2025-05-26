@@ -101,12 +101,29 @@ function fecharDialogAvaliacao() {
 
 function atualizarMediaAvaliacoes(nomePrato) {
     const pratoAvaliacoes = avaliacoes[nomePrato] || [];
-    if (pratoAvaliacoes.length === 0) return;
-
-    const media = pratoAvaliacoes.reduce((sum, av) => sum + av.valor, 0) / pratoAvaliacoes.length;
-    const mediaElement = document.querySelector(`[data-prato="${nomePrato}"] .media-avaliacao`);
     
-    if (mediaElement) {
+    // Encontrar o item do menu pelo título
+    const menuItems = document.querySelectorAll('.menu-item');
+    const menuItem = Array.from(menuItems).find(item => 
+        item.querySelector('h3').textContent === nomePrato
+    );
+    
+    if (!menuItem) return;
+
+    // Atualizar média
+    if (pratoAvaliacoes.length > 0) {
+        const media = pratoAvaliacoes.reduce((sum, av) => sum + av.valor, 0) / pratoAvaliacoes.length;
+        let mediaElement = menuItem.querySelector('.media-avaliacao');
+        
+        if (!mediaElement) {
+            mediaElement = document.createElement('div');
+            mediaElement.className = 'media-avaliacao';
+            const priceElement = menuItem.querySelector('.price');
+            if (priceElement) {
+                priceElement.parentNode.insertBefore(mediaElement, priceElement);
+            }
+        }
+        
         mediaElement.innerHTML = `
             <div class="estrelas-media">
                 ${[1, 2, 3, 4, 5].map(num => `
@@ -116,11 +133,27 @@ function atualizarMediaAvaliacoes(nomePrato) {
             <span class="media-valor">(${media.toFixed(1)})</span>
             <span class="contador-avaliacoes">${pratoAvaliacoes.length} avaliação${pratoAvaliacoes.length !== 1 ? 'ões' : ''}</span>
         `;
+    }
 
-        // Adicionar últimas avaliações
-        const ultimasAvaliacoes = pratoAvaliacoes.slice(-2).reverse();
+    // Atualizar últimas avaliações
+    const ultimasAvaliacoes = pratoAvaliacoes.slice(-2).reverse();
+    let ultimasAvaliacoesContainer = menuItem.querySelector('.ultimas-avaliacoes');
+    
+    if (ultimasAvaliacoes.length > 0) {
+        if (!ultimasAvaliacoesContainer) {
+            ultimasAvaliacoesContainer = document.createElement('div');
+            ultimasAvaliacoesContainer.className = 'ultimas-avaliacoes';
+            
+            // Encontrar o botão de adicionar ao carrinho
+            const botaoCarrinho = menuItem.querySelector('.adicionar-carrinho');
+            if (botaoCarrinho) {
+                // Inserir após o botão
+                botaoCarrinho.parentNode.insertBefore(ultimasAvaliacoesContainer, botaoCarrinho.nextSibling);
+            }
+        }
+        
         const ultimasAvaliacoesHTML = ultimasAvaliacoes.map(av => `
-            <div class="ultima-avaliacao">
+            <div class="ultima-avaliacao${av.comentario ? '' : ' no-comment'}">
                 <div class="estrelas-avaliacao">
                     ${[1, 2, 3, 4, 5].map(num => `
                         <span class="estrela" style="color: ${num <= av.valor ? '#FFD700' : '#ccc'}">★</span>
@@ -130,22 +163,10 @@ function atualizarMediaAvaliacoes(nomePrato) {
                 <span class="data-avaliacao">${new Date(av.data).toLocaleDateString()}</span>
             </div>
         `).join('');
-
-        const ultimasAvaliacoesContainer = document.createElement('div');
-        ultimasAvaliacoesContainer.className = 'ultimas-avaliacoes';
+        
         ultimasAvaliacoesContainer.innerHTML = ultimasAvaliacoesHTML;
-        
-        // Remover container anterior se existir
-        const containerAnterior = document.querySelector(`[data-prato="${nomePrato}"] .ultimas-avaliacoes`);
-        if (containerAnterior) {
-            containerAnterior.remove();
-        }
-        
-        // Adicionar após o botão de adicionar ao carrinho
-        const botaoCarrinho = document.querySelector(`[data-prato="${nomePrato}"] .adicionar-carrinho`);
-        if (botaoCarrinho) {
-            botaoCarrinho.parentNode.insertBefore(ultimasAvaliacoesContainer, botaoCarrinho.nextSibling);
-        }
+    } else if (ultimasAvaliacoesContainer) {
+        ultimasAvaliacoesContainer.remove();
     }
 }
 
@@ -155,12 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
     menuItems.forEach(item => {
         const nome = item.querySelector('h3').textContent;
         
-        // Adicionar container para média de avaliações
-        const mediaContainer = document.createElement('div');
-        mediaContainer.className = 'media-avaliacao';
-        mediaContainer.setAttribute('data-prato', nome);
-        item.appendChild(mediaContainer);
-
         // Adicionar botão de avaliação
         const botaoAvaliar = document.createElement('button');
         botaoAvaliar.className = 'avaliar-prato';
@@ -171,4 +186,37 @@ document.addEventListener('DOMContentLoaded', () => {
         // Atualizar média inicial
         atualizarMediaAvaliacoes(nome);
     });
-}); 
+
+    // Adicionar avaliações iniciais se não houver nenhuma
+    const nomesPratos = Array.from(menuItems).map(item => item.querySelector('h3').textContent);
+    popularAvaliacoesIniciais(nomesPratos);
+});
+
+function popularAvaliacoesIniciais(nomesPratos) {
+    const comentariosIniciais = [
+        "Muito bom!",
+        "Delicioso!",
+        "Excelente!",
+        "Adorei!",
+        "Perfeito!",
+        "Saboroso!"
+    ];
+
+    nomesPratos.forEach(nomePrato => {
+        if (!avaliacoes[nomePrato] || avaliacoes[nomePrato].length === 0) {
+            avaliacoes[nomePrato] = [];
+            const numAvaliacoes = Math.floor(Math.random() * 2) + 5; // 5 a 6 avaliações
+            for (let i = 0; i < numAvaliacoes; i++) {
+                const valor = Math.floor(Math.random() * 3) + 3; // 3 a 5 estrelas
+                const comentario = comentariosIniciais[Math.floor(Math.random() * comentariosIniciais.length)];
+                avaliacoes[nomePrato].push({
+                    valor,
+                    comentario,
+                    data: new Date(Date.now() - i * 86400000).toISOString() // Datas recentes
+                });
+            }
+            atualizarMediaAvaliacoes(nomePrato);
+        }
+    });
+    localStorage.setItem('avaliacoes', JSON.stringify(avaliacoes));
+} 
