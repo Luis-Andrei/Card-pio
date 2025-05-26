@@ -622,4 +622,15 @@ html {
     opacity: 0.4;
     display: block;
     margin-top: 2px;
+}
+
+.data-avaliacao .nome-avaliador {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-right: 4px;
+}
+
+.data-avaliacao .data-texto {
+    font-size: 7px;
+    opacity: 0.4;
 } 
