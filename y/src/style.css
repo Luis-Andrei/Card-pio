@@ -423,3 +423,33 @@
         padding: 8px 15px;
   }
 }
+
+/* Modal de desafio visual */
+.modal {
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+}
+.captcha-square {
+  border-radius: 6px;
+  border: 2px solid #eee;
+  transition: transform 0.1s;
+}
+.captcha-square:hover {
+  transform: scale(1.1);
+  border-color: #4A90E2;
+}
+#finalizar-pedido[style*="display:none"] {
+  display: none !important;
+}

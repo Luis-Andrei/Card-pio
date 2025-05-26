@@ -270,4 +270,51 @@ document.addEventListener('DOMContentLoaded', () => {
             carrinhoContainer.style.display = 'none';
         }
     });
+});
+
+// --- Proteção anti-bot ---
+function mostrarDesafioVisual() {
+    document.getElementById('desafio-modal').style.display = 'flex';
+}
+function esconderDesafioVisual() {
+    document.getElementById('desafio-modal').style.display = 'none';
+}
+function liberarFinalizarPedido() {
+    document.getElementById('finalizar-pedido').style.display = '';
+    document.getElementById('recaptcha-container').style.display = 'none';
+}
+window.onRecaptchaSuccess = liberarFinalizarPedido;
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Desafio visual
+    document.querySelectorAll('.captcha-square').forEach(function(square) {
+        square.addEventListener('click', function() {
+            if (this.dataset.color === 'blue') {
+                esconderDesafioVisual();
+                liberarFinalizarPedido();
+            } else {
+                alert('Tente novamente!');
+            }
+        });
+    });
+    // Mostrar desafio visual ao tentar finalizar pedido
+    var btn = document.getElementById('finalizar-pedido');
+    if (btn) {
+        btn.style.display = 'none';
+    }
+    // Mostrar desafio visual ou recaptcha ao tentar finalizar
+    var recaptcha = document.getElementById('recaptcha-container');
+    if (recaptcha) {
+        recaptcha.style.display = '';
+    }
+    // Só mostrar botão após interação do usuário
+    let liberado = false;
+    function liberarPorInteracao() {
+        if (!liberado) {
+            mostrarDesafioVisual();
+            liberado = true;
+        }
+    }
+    window.addEventListener('scroll', liberarPorInteracao, { once: true });
+    window.addEventListener('click', liberarPorInteracao, { once: true });
 }); 
