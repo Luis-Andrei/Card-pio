@@ -200,8 +200,11 @@ function atualizarMediaAvaliacoes(nomePrato) {
         `;
     }
 
-    // Atualizar últimas avaliações
-    const ultimasAvaliacoes = pratoAvaliacoes.slice(-2).reverse();
+    // Filtrar apenas avaliações com 4 ou 5 estrelas
+    const avaliacoesPositivas = pratoAvaliacoes.filter(av => av.valor >= 4);
+    
+    // Atualizar últimas avaliações (apenas as positivas)
+    const ultimasAvaliacoes = avaliacoesPositivas.slice(-2).reverse();
     let ultimasAvaliacoesContainer = menuItem.querySelector('.ultimas-avaliacoes');
     
     if (ultimasAvaliacoes.length > 0) {
