@@ -1,0 +1,455 @@
+@import "./styles.css";
+
+/* Estilos do Carrinho */
+.carrinho-container {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    width: 320px;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 1000;
+    border: 1px solid #e0e0e0;
+}
+
+.carrinho-titulo {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+#carrinho-items {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+.carrinho-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f8f8f8;
+    padding: 8px 15px;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+
+.carrinho-item span:first-child {
+    color: #444;
+    font-size: 0.9em;
+}
+
+.carrinho-item span:nth-child(2) {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.carrinho-item button {
+    background: #ff4444;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: all 0.3s ease;
+}
+
+.carrinho-item button:hover {
+    background: #ff0000;
+}
+
+.carrinho-total {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1em;
+    white-space: nowrap;
+}
+
+.adicionar-carrinho {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.adicionar-carrinho:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Ajuste para o container principal */
+.container {
+    margin-top: 80px;
+    padding: 20px;
+}
+
+.site-logo {
+    display: block; /* Para centralizar se a largura for menor que o container */
+    margin: 0 auto 20px auto; /* Centralizar e adicionar espaço abaixo */
+    max-width: 150px; /* Definir uma largura máxima */
+    height: auto; /* Manter a proporção da imagem */
+}
+
+/* Estilização da barra de rolagem do carrinho */
+#carrinho-items::-webkit-scrollbar {
+    height: 6px;
+}
+
+#carrinho-items::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+#carrinho-items::-webkit-scrollbar-thumb {
+    background: #4CAF50;
+    border-radius: 3px;
+}
+
+#carrinho-items::-webkit-scrollbar-thumb:hover {
+    background: #45a049;
+}
+
+/* Estilos do Ícone do Carrinho */
+.carrinho-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #4CAF50;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.carrinho-icon:hover {
+    transform: scale(1.1);
+    background: #45a049;
+}
+
+.carrinho-icon i {
+    font-size: 24px;
+}
+
+.carrinho-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff4444;
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid white;
+}
+
+.finalizar-pedido {
+    width: 100%;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.finalizar-pedido:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.finalizar-pedido:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Estilos do Diálogo de Forma de Pagamento */
+.forma-pagamento-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.forma-pagamento-content {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 400px;
+}
+
+.forma-pagamento-content h3 {
+    margin: 0 0 20px 0;
+    color: #333;
+  text-align: center;
+    font-size: 1.2em;
+}
+
+.formas-pagamento {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.formas-pagamento label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #333;
+}
+
+.formas-pagamento label:hover {
+    background: #f5f5f5;
+    border-color: #4CAF50;
+}
+
+.formas-pagamento input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #4CAF50;
+}
+
+.dialog-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.dialog-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.dialog-buttons button:first-child {
+    background: #4CAF50;
+    color: white;
+}
+
+.dialog-buttons button:last-child {
+    background: #f44336;
+    color: white;
+}
+
+.dialog-buttons button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Estilos do Diálogo de Seleção de Bairro */
+.selecionar-bairro-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.selecionar-bairro-content {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 400px;
+    max-height: 80vh; /* Limitar altura para caber na tela */
+    overflow-y: auto; /* Adicionar scroll se o conteúdo for maior que a altura */
+}
+
+.selecionar-bairro-content h3 {
+    margin: 0 0 20px 0;
+    color: #333;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.lista-bairros {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Diminuir um pouco o gap para listas maiores */
+    margin-bottom: 20px;
+}
+
+.lista-bairros label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+    transition: all 0.3s ease;
+    color: #333;
+}
+
+.lista-bairros label:hover {
+    background: #f5f5f5;
+    border-color: #4CAF50;
+}
+
+.lista-bairros input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #4CAF50;
+}
+
+/* Estilos para Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px; /* Ajuste o padding para telas menores */
+    }
+
+    .title {
+        font-size: 1.8em; /* Reduzir o tamanho do título principal */
+    }
+
+    .section-title {
+        font-size: 1.4em; /* Reduzir o tamanho dos títulos de seção */
+    }
+
+    /* Ajustar o layout dos itens do menu se necessário */
+    .menu-section .menu-item {
+        /* Geralmente eles já se empilham por padrão, mas se houver display flex ou grid aqui, pode precisar ajustar */
+    }
+
+    /* Ajustar a largura máxima de elementos como o logo */
+     .site-logo {
+         max-width: 120px; /* Reduzir o tamanho máximo do logo */
+     }
+
+     /* Ajustar o tamanho do carrinho ou sua posição se necessário */
+     .carrinho-container {
+         width: 95%; /* Aumentar a largura do carrinho em telas menores */
+         right: 2.5%; /* Centralizar o carrinho */
+         top: 70px; /* Ajustar a posição vertical */
+         max-height: 85vh;
+         padding: 15px;
+     }
+
+     .carrinho-icon {
+        width: 45px;
+        height: 45px;
+        top: 15px;
+        right: 15px;
+     }
+
+     .carrinho-icon i {
+         font-size: 20px;
+     }
+
+     .carrinho-count {
+         width: 20px;
+         height: 20px;
+         font-size: 11px;
+  }
+
+     /* Ajustar o tamanho dos botões, se necessário */
+     .adicionar-carrinho,
+     .finalizar-pedido {
+         padding: 10px; /* Reduzir o padding dos botões */
+         font-size: 1em; /* Ajustar o tamanho da fonte */
+     }
+
+     /* Ajustar o diálogo de pagamento/bairro */
+     .forma-pagamento-content,
+     .selecionar-bairro-content {
+        padding: 15px;
+     }
+
+     .formas-pagamento label,
+     .lista-bairros label {
+        padding: 8px;
+     }
+
+     .dialog-buttons button {
+        padding: 8px 15px;
+  }
+}
+
+/* Modal de desafio visual */
+.modal {
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+}
+.captcha-square {
+  border-radius: 6px;
+  border: 2px solid #eee;
+  transition: transform 0.1s;
+}
+.captcha-square:hover {
+  transform: scale(1.1);
+  border-color: #4A90E2;
+}
+#finalizar-pedido[style*="display:none"] {
+  display: none !important;
+}

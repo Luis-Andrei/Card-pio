@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cardápio Lanceria 3 Aliança</title>
+    <link rel="stylesheet" href="./src/style.css">
+    <link rel="stylesheet" href="./src/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+  <body>
+    <div class="header">
+        <h1 class="title">Cardápio Lanceria 3 Aliança</h1>
+        <h2 class="subtitle">Faça seu pedido</h2>
+    </div>
+    
+    <div class="container">
+        <!-- Ícone do Carrinho -->
+        <div class="carrinho-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="carrinho-count">0</span>
+        </div>
+
+        <!-- Carrinho de Compras -->
+        <div class="carrinho-container" style="display: none;">
+            <h2 class="carrinho-titulo">Carrinho de Compras</h2>
+            <div id="carrinho-items"></div>
+            <div id="carrinho-total" class="carrinho-total">Total: R$ 0,00</div>
+            <button id="finalizar-pedido" class="finalizar-pedido">Finalizar Pedido</button>
+        </div>
+
+        <section class="menu-section">
+            <h2 class="section-title">COMBOS PROMOCIONAIS</h2>
+            <div class="menu-item">
+                <h3>Combo 1</h3>
+                <p>2 Cachorros Simples</p>
+                <p>1 Fruki 2 Lts</p>
+                <span class="price">Valor: R$ 45,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>Combo 2</h3>
+                <p>2 Xis Salada</p>
+                <p>1 Fruki 2 Lts</p>
+                <span class="price">Valor: R$ 55,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>Combo 3</h3>
+                <p>2 Cachorros Simples</p>
+                <p>1 porção fritas (200g)</p>
+                <p>1 Fruki 2 Lts</p>
+                <span class="price">Valor: R$ 57,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>Combo 4</h3>
+                <p>2 Xis Salada</p>
+                <p>1 porção fritas (200g)</p>
+                <p>1 Fruki 2 Lts</p>
+                <span class="price">Valor: R$ 67,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>Combo 5</h3>
+                <p>3 Xis Salada</p>
+                <p>1 Fruki 2 Lts</p>
+                <span class="price">Valor: R$ 80,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>Combo 6</h3>
+                <p>3 Xis Salada</p>
+                <p>1 porção fritas (200g)</p>
+                <p>1 Fruki 2 Lts</p>
+                <span class="price">Valor: R$ 92,00</span>
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <h2 class="section-title">XIS</h2>
+            <div class="menu-item">
+                <h3>Xis Salada</h3>
+                <p>Pão, milho, ervilha, maionese, tomate, ovo, tempero verde, alface, catchup, mostarda, queijo, presunto e bife</p>
+                <span class="price">R$ 25,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>Xis Frango</h3>
+                <p>Pão, milho, ervilha, maionese, tomate, ovo, tempero verde, alface, catchup, mostarda, queijo, presunto e frango</p>
+                <span class="price">R$ 26,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>Xis Calabresa</h3>
+                <p>Pão, milho, ervilha, maionese, tomate, ovo, tempero verde, alface, catchup, mostarda, queijo, presunto e calabresa</p>
+                <span class="price">R$ 28,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>Xis Bacon</h3>
+                <p>Pão, milho, ervilha, maionese, tomate, ovo, tempero verde, alface, catchup, mostarda, queijo, presunto e bacon</p>
+                <span class="price">R$ 30,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>Xis Coração</h3>
+                <p>Pão, milho, ervilha, maionese, tomate, ovo, tempero verde, alface, catchup, mostarda, queijo, presunto e coração</p>
+                <span class="price">R$ 32,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>Xis Tudo</h3>
+                <p>Pão, milho, ervilha, maionese, tomate, ovo, tempero verde, alface, catchup, mostarda, queijo, presunto, bife, frango, calabresa e coração</p>
+                <span class="price">R$ 32,00</span>
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <h2 class="section-title">CACHORRO-QUENTE</h2>
+            <div class="menu-item">
+                <h3>Simples</h3>
+                <p>Pão, molho de salsicha, catchup, mostarda, milho, ervilha, batata palha e tempero verde</p>
+                <span class="price">R$ 20,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>Duplo (2 salsichas)</h3>
+                <p>Pão, molho de salsicha, catchup, mostarda, milho, ervilha, batata palha e tempero verde</p>
+                <span class="price">R$ 23,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>De Frango</h3>
+                <p>Pão, molho de salsicha, catchup, mostarda, milho, ervilha, batata palha e tempero verde</p>
+                <span class="price">R$ 26,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>De Carne</h3>
+                <p>Pão, molho de salsicha, catchup, mostarda, milho, ervilha, batata palha e tempero verde</p>
+                <span class="price">R$ 25,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>De Calabresa</h3>
+                <p>Pão, molho de salsicha, catchup, mostarda, milho, ervilha, batata palha e tempero verde</p>
+                <span class="price">R$ 27,00</span>
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <h2 class="section-title">ACOMPANHAMENTOS</h2>
+            <div class="menu-item">
+                <h3>Batata Frita Tradicional</h3>
+                <p class="description">Dentro do XIS</p>
+                <span class="price">R$ 4,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>Torrada com Ovo</h3>
+                <p class="description">Pao de Xis, Catchup, Mostarda, Milho, Ervilha, Tomate ,Ovo, Tempero Verde</p>
+                <span class="price">R$ 17,00</span>
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <h2 class="section-title">PORÇÕES DE BATATA FRITA</h2>
+            <div class="menu-item">
+                <h3>Porção 200g</h3>
+                <span class="price">R$ 15,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>Porção 280g</h3>
+                <span class="price">R$ 20,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>Porção 350g</h3>
+                <span class="price">R$ 25,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>Porção 400g</h3>
+                <span class="price">R$ 30,00</span>
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <h2 class="section-title">Picadão FAMÍLIA</h2>
+            <p class="description">Inclui: ovo de codorna, azeitona, batata frita, polenta, queijo, carne bovina, coração, frango, calabresa e anel de cebola.</p>
+            <div class="menu-item">
+                <h3>Para 1 pessoa</h3>
+                <p>Ovo de codorna, azeitona, batata frita, polenta, queijo, carne bovina, coração, frango, calabresa e anel de cebola</p>
+                <span class="price">R$ 65,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>Para 2 pessoas</h3>
+                <p>Ovo de codorna, azeitona, batata frita, polenta, queijo, carne bovina, coração, frango, calabresa e anel de cebola</p>
+                <span class="price">R$ 95,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>Para 3 pessoas</h3>
+                <p>Ovo de codorna, azeitona, batata frita, polenta, queijo, carne bovina, coração, frango, calabresa e anel de cebola</p>
+                <span class="price">R$ 120,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>Para 4 pessoas</h3>
+                <p>Ovo de codorna, azeitona, batata frita, polenta, queijo, carne bovina, coração, frango, calabresa e anel de cebola</p>
+                <span class="price">R$ 160,00</span>
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <h2 class="section-title">BEBIDAS</h2>
+            <div class="menu-item">
+                <h3>Refrigerante lata (Guaraná / Pepsi)</h3>
+                <span class="price">R$ 6,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>Refrigerante 2L (Guaraná / Pepsi)</h3>
+                <span class="price">R$ 12,00</span>
+            </div>
+            <div class="menu-item">
+                <h3>Cerveja lata (Polar, Brahma, Skol e Skin)</h3>
+                <span class="price">R$ 7,00</span>
+            </div>
+        </section>
+    </div>
+    
+    <p class="copyright"> 2025 Todos os Direitos reservados para Luis Andrei</p>
+    <script type="module" src="./src/main.js"></script>
+    <script src="./src/carrinho.js"></script>
+    <script src="./src/avaliacoes.js"></script>
+    <script src="./src/auth.js"></script>
+  </body>
+</html>
