@@ -18,12 +18,12 @@ const comentariosDetalhadosIniciais = [
     "Delicioso e bem servido. Primeira vez pedindo, virei cliente.",
     "Excelente qualidade e sabor. As estrelas fazem jus!",
     "Adorei a opção de retirada em loja, super prático e sem custo de entrega. O lanche estava quentinho.",
-    "Perfeito para o fim de semana. O Xis Tudo é uma explosão de sabores.",
+    "Perfeito para o fim de semana. O  Tudo é uma explosão de sabores.",
     "Saboroso como sempre! O pedido veio certinho e a embalagem é boa.",
     "Chegou super rápido! A batata frita estava quentinha e crocante.",
     "O atendimento pelo WhatsApp foi excelente, muito atenciosos.",
     "Muito bom, lanche bem recheado! 👍",
-    "Faltou um pouco de sal na batata, mas o Xis compensou, muito saboroso!",
+    "Faltou um pouco de sal na batata, mas compensou, muito saboroso!",
     "Pedido simples e rápido, ideal para uma refeição rápida."
 ];
 
