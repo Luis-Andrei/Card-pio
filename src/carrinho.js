@@ -156,6 +156,7 @@ function selecionarFormaPagamento() {
 }
 
 async function finalizarPedido() {
+    // Verificar se há itens no carrinho
     if (carrinho.length === 0) {
         alert('Adicione itens ao carrinho antes de finalizar o pedido!');
         return;
@@ -204,9 +205,10 @@ Lanceria 3 Aliança
     
     // Abrir o WhatsApp em uma nova aba
     window.open(linkWhatsApp, '_blank');
-    
+
     // Limpar o carrinho após enviar
     carrinho = [];
+    localStorage.removeItem('carrinho');
     atualizarCarrinho();
     atualizarContador();
     document.querySelector('.carrinho-container').style.display = 'none';
