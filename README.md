@@ -61,8 +61,8 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## ✨ Próximas Atualizações
 
-- [ ] Sistema de login para clientes
+- [ok] Sistema de login para clientes
 - [ ] Histórico de pedidos
 - [ok] Integração com WhatsApp para pedidos
-- [ ] Área administrativa para gestão do cardápio
+- [ok] Área administrativa para gestão do cardápio
 - [ ] Sistema de cupons de desconto 
