@@ -32,16 +32,29 @@ class Auth {
     }
 
     async login(username, password) {
-        const user = this.users[username];
-        if (!user || user.password !== this.hashPassword(password)) {
-            throw new Error('Usuário ou senha inválidos');
+        // Apenas admin precisa de senha
+        if (username === 'admin') {
+             const user = this.users[username];
+             if (!user || user.password !== this.hashPassword(password)) {
+                 throw new Error('Usuário ou senha inválidos');
+             }
+             this.currentUser = {
+                 username,
+                 role: user.role,
+                 name: user.name
+             };
+        } else { // Outros usuários não precisam de senha
+            const user = this.users[username];
+            if (!user) {
+                 throw new Error('Usuário não encontrado. Por favor, registre-se.');
+            }
+             this.currentUser = {
+                 username,
+                 role: user.role,
+                 name: user.name
+             };
         }
-
-        this.currentUser = {
-            username,
-            role: user.role,
-            name: user.name
-        };
+       
         this.saveCurrentUser();
         return this.currentUser;
     }
@@ -51,13 +64,17 @@ class Auth {
         localStorage.removeItem('currentUser');
     }
 
-    register(username, password, name) {
+    // Função de registro simplificada para usuários normais (sem senha)
+    register(username, name) {
+        // Gerar uma senha aleatória para o localStorage, embora não seja usada para login
+        const randomPassword = Math.random().toString(36).substring(2, 15);
+        
         if (this.users[username]) {
             throw new Error('Usuário já existe');
         }
 
         this.users[username] = {
-            password: this.hashPassword(password),
+            password: this.hashPassword(randomPassword), // Salva um hash, mas não é usado para login
             role: 'user',
             name
         };
@@ -122,10 +139,6 @@ function showRegisterForm() {
                         <label for="regUsername">Usuário:</label>
                         <input type="text" id="regUsername" required>
                     </div>
-                    <div class="form-group">
-                        <label for="regPassword">Senha:</label>
-                        <input type="password" id="regPassword" required>
-                    </div>
                     <button type="submit">Registrar</button>
                 </form>
                 <p class="auth-switch">Já tem uma conta? <a href="#" id="showLogin">Faça login</a></p>
@@ -170,10 +183,9 @@ function setupRegisterListeners() {
         e.preventDefault();
         const name = document.getElementById('regName').value;
         const username = document.getElementById('regUsername').value;
-        const password = document.getElementById('regPassword').value;
 
         try {
-            auth.register(username, password, name);
+            auth.register(username, name);
             alert('Registro realizado com sucesso! Faça login para continuar.');
             document.querySelector('.auth-container').remove();
             showLoginForm();
