@@ -3,7 +3,6 @@ import { resolve } from 'path'
 
 export default defineConfig({
   root: '.', // Diretório raiz do projeto
-  publicDir: 'public', // Diretório de arquivos públicos
   server: {
     host: true, // Permite acesso externo
     port: 5173,
