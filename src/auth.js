@@ -8,26 +8,19 @@ class Auth {
     }
 
     init() {
-        // Criar usuário admin padrão se não existir
-        if (!this.users['admin']) {
-            this.users['admin'] = {
-                password: this.hashPassword('SDandrei857691@'),
-                role: 'admin',
-                name: 'Administrador'
-            };
-            this.saveUsers();
-            console.log('Admin user created'); // Debug log
-        } else {
-            // Atualizar senha do admin existente
-            this.users['admin'].password = this.hashPassword('SDandrei857691@');
-            this.saveUsers();
-            console.log('Admin password updated'); // Debug log
-        }
+        // Sempre criar/atualizar o usuário admin
+        this.users['admin'] = {
+            password: this.hashPassword('SDandrei857691@'),
+            role: 'admin',
+            name: 'Administrador'
+        };
+        this.saveUsers();
+        console.log('Admin user created/updated'); // Debug log
     }
 
     hashPassword(password) {
-        // Em um ambiente de produção, use uma biblioteca de hash segura
-        return btoa(password); // Apenas para demonstração
+        // Função simples de hash para demonstração
+        return btoa(password); // Não use em produção!
     }
 
     saveUsers() {
