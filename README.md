@@ -115,7 +115,7 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## ✨ Funcionalidades Implementadas
 
-- [] Sistema de login para clientes
+- [x] Sistema de Nomes para clientes
 - [] Histórico de pedidos
 - [x] Integração com WhatsApp para pedidos
 - [x] Área administrativa para gestão do cardápio

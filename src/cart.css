@@ -292,39 +292,61 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive */
+/* Media Queries para Responsividade */
 @media (max-width: 768px) {
     .cart-container {
         width: 100%;
-        height: 80vh;
-        top: auto;
-        bottom: 0;
-        transform: translateY(100%);
-        border-radius: 15px 15px 0 0;
-    }
-
-    .cart-container.active {
-        transform: translateY(0);
+        max-width: 350px;
     }
 
     .cart-button {
-        top: auto;
-        bottom: 20px;
-        right: 20px;
+        top: 10px;
+        right: 10px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .cart-button i {
+        font-size: 1.3rem;
+    }
+
+    .cart-count {
+        padding: 1px 6px;
+        font-size: 11px;
+    }
+
+    .dialog-content {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .cart-item {
+        padding: 10px;
+    }
+
+    .cart-item span {
+        font-size: 0.95rem;
+    }
+
+    .cart-item button {
+        padding: 5px 10px;
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 480px) {
     .cart-container {
-        padding: 16px 12px 12px 12px;
+        max-width: 100%;
     }
 
     .cart-title {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 
     .cart-item {
-        padding: 8px;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
     }
 
     .cart-item span {
@@ -332,8 +354,8 @@
     }
 
     .cart-item button {
-        padding: 4px 8px;
-        font-size: 0.8rem;
+        width: 100%;
+        padding: 8px;
     }
 
     .cart-total {
@@ -343,6 +365,44 @@
     .checkout-button {
         padding: 10px;
         font-size: 0.9rem;
+    }
+
+    .dialog-content {
+        padding: 15px;
+    }
+
+    .dialog-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .payment-methods label,
+    .delivery-areas label {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 360px) {
+    .cart-button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .cart-button i {
+        font-size: 1.2rem;
+    }
+
+    .cart-title {
+        font-size: 1.2rem;
+    }
+
+    .cart-item span {
+        font-size: 0.85rem;
+    }
+
+    .cart-total {
+        font-size: 1rem;
     }
 }
 

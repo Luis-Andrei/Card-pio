@@ -374,4 +374,133 @@
     background: rgba(255, 77, 77, 0.2); /* More visible light red background on hover */
     border: 1px solid #ff4d4d; /* Add subtle border on hover */
     padding: 7px; /* Adjust padding due to border */
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    .admin-panel {
+        width: 95%;
+        height: 90vh;
+    }
+
+    .admin-header {
+        padding: 0.8rem;
+    }
+
+    .admin-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .admin-content {
+        padding: 0.8rem;
+    }
+
+    .admin-section {
+        padding: 0.8rem;
+    }
+
+    .admin-section h4 {
+        font-size: 1.1rem;
+    }
+
+    .admin-item {
+        padding: 10px;
+    }
+
+    .item-name {
+        font-size: 0.95rem;
+    }
+
+    .item-price {
+        font-size: 0.9rem;
+    }
+
+    .edit-item, .delete-item {
+        padding: 6px;
+        font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 6px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-panel {
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .admin-panel.minimized {
+        max-width: 150px;
+    }
+
+    .admin-header {
+        padding: 0.6rem;
+    }
+
+    .admin-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .admin-content {
+        padding: 0.6rem;
+    }
+
+    .admin-section {
+        padding: 0.6rem;
+    }
+
+    .admin-section h4 {
+        font-size: 1rem;
+    }
+
+    .admin-item {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .item-actions {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .edit-item, .delete-item {
+        width: 100%;
+        padding: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .dialog-content {
+        width: 95%;
+        padding: 15px;
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 360px) {
+    .admin-header h3 {
+        font-size: 1rem;
+    }
+
+    .admin-section h4 {
+        font-size: 0.95rem;
+    }
+
+    .item-name {
+        font-size: 0.9rem;
+    }
+
+    .item-price {
+        font-size: 0.85rem;
+    }
 } 

@@ -13,10 +13,9 @@ window.ENABLE_ADMIN = ENABLE_ADMIN; // Tornar a flag admin globalmente acessíve
 // O conteúdo do cardápio está no index.html
 
 // Inicialização do painel admin (condicional)
-let admin;
 if (ENABLE_ADMIN) {
-    admin = new AdminPanel();
-    window.admin = admin; // Tornar a instância admin globalmente acessível
+    // A instância admin já foi criada em admin.js
+    console.log('Admin panel habilitado');
 }
 
 (function() {

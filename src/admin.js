@@ -1,5 +1,5 @@
 class AdminPanel {
-    constructor(password = '123456') {
+    constructor(password = '2195') {
         this.isAdmin = false;
         this.userName = '';
         this.adminPassword = password;
@@ -24,6 +24,10 @@ class AdminPanel {
             const cancelBtn = dialog.querySelector('.cancel-btn');
 
             const checkPassword = () => {
+                console.log('Verificando senha...');
+                console.log('Senha digitada (input.value):', input.value);
+                console.log('Senha esperada (this.adminPassword):', this.adminPassword);
+                console.log('Comparação (input.value === this.adminPassword):', input.value === this.adminPassword);
                 if (input.value === this.adminPassword) {
                     this.closeDialog(dialog);
                     resolve(true);
@@ -409,4 +413,5 @@ class AdminPanel {
 }
 
 // Exportar a instância do AdminPanel
-window.AdminPanel = AdminPanel; 
+window.AdminPanel = AdminPanel;
+window.admin = new AdminPanel('2195'); // Criar a instância global com a senha correta 
