@@ -10,7 +10,7 @@ const nomesIniciais = [
 
 // Lista de comentários mais realistas
 const comentariosDetalhadosIniciais = [
-    "O xis é simplesmente o melhor que já comi na vida! Atendimento rápido e super educado. Recomendo muito! 🍔👌",
+    "O lanche é simplesmente o melhor que já comi na vida! Atendimento rápido e super educado. Recomendo muito! 🍔👌",
     "Gostei bastante do cachorro-quente, só achei que podia ter um pouco mais de maionese, mas no geral tudo perfeito.",
     "Entrega super rápida, tudo fresquinho. A batata frita estava crocante e saborosa. Vou pedir de novo com certeza!",
     "A porção de picadão família vale muito a pena, dá pra alimentar todo mundo! Só o refrigerante que poderia estar mais gelado.",
@@ -18,7 +18,7 @@ const comentariosDetalhadosIniciais = [
     "Delicioso e bem servido. Primeira vez pedindo, virei cliente.",
     "Excelente qualidade e sabor. As estrelas fazem jus!",
     "Adorei a opção de retirada em loja, super prático e sem custo de entrega. O lanche estava quentinho.",
-    "Perfeito para o fim de semana. O  Tudo é uma explosão de sabores.",
+    "Perfeito para o fim de semana. O lanche é uma explosão de sabores.",
     "Saboroso como sempre! O pedido veio certinho e a embalagem é boa.",
     "Chegou super rápido! A batata frita estava quentinha e crocante.",
     "O atendimento pelo WhatsApp foi excelente, muito atenciosos.",
@@ -29,13 +29,13 @@ const comentariosDetalhadosIniciais = [
 
 // Novas listas de comentários por categoria
 const comentariosPorCategoria = {
-    "Xis": [
-        "O xis é simplesmente o melhor que já comi na vida! Atendimento rápido e super educado. Recomendo muito! 🍔👌",
-        "Perfeito para o fim de semana. O Xis é uma explosão de sabores.",
+    "Lanche": [
+        "O lanche é simplesmente o melhor que já comi na vida! Atendimento rápido e super educado. Recomendo muito! 🍔👌",
+        "Perfeito para o fim de semana. O lanche é uma explosão de sabores.",
         "Muito bom, lanche bem recheado! 👍",
-        "Faltou um pouco de sal na batata, mas o Xis compensou, muito saboroso!",
-        "O Xis é leve e saboroso, uma ótima opção!",
-        "Simplesmente o melhor Xis da região, ingredientes frescos e de qualidade."
+        "Faltou um pouco de sal na batata, mas o lanche compensou, muito saboroso!",
+        "O lanche é leve e saboroso, uma ótima opção!",
+        "Simplesmente o melhor lanche da região, ingredientes frescos e de qualidade."
     ],
     "Cachorro-Quente": [
         "Gostei bastante do cachorro-quente, só achei que podia ter um pouco mais de maionese, mas no geral tudo perfeito.",
@@ -213,7 +213,7 @@ function atualizarMediaAvaliacoes(nomePrato) {
             ultimasAvaliacoesContainer.className = 'ultimas-avaliacoes';
             
             // Encontrar o botão de adicionar ao carrinho
-            const botaoCarrinho = menuItem.querySelector('.adicionar-carrinho');
+            const botaoCarrinho = menuItem.querySelector('.add-to-cart-btn');
             if (botaoCarrinho) {
                 // Inserir após o botão
                 botaoCarrinho.parentNode.insertBefore(ultimasAvaliacoesContainer, botaoCarrinho.nextSibling);
@@ -239,32 +239,43 @@ function atualizarMediaAvaliacoes(nomePrato) {
 }
 
 // Adicionar botão de avaliação em cada item do menu
-document.addEventListener('DOMContentLoaded', () => {
-    const menuItems = document.querySelectorAll('.menu-item');
-    menuItems.forEach(item => {
-        const nome = item.querySelector('h3').textContent;
-        
-        // Adicionar botão de avaliação
-        const botaoAvaliar = document.createElement('button');
-        botaoAvaliar.className = 'avaliar-prato';
-        botaoAvaliar.textContent = 'Avaliar';
-        botaoAvaliar.onclick = () => mostrarDialogAvaliacao(nome);
-        item.appendChild(botaoAvaliar);
+// document.addEventListener('DOMContentLoaded', () => {
+//     const menuItems = document.querySelectorAll('.menu-item');
+//     menuItems.forEach(item => {
+//         const nome = item.querySelector('h3').textContent;
+            
+//         // Adicionar botão de avaliação
+//         const botaoAvaliar = document.createElement('button');
+//         botaoAvaliar.className = 'avaliar-prato';
+//         botaoAvaliar.textContent = 'Avaliar';
 
-        // Atualizar média inicial
-        atualizarMediaAvaliacoes(nome);
-    });
+//         // Adicionar evento de clique para mostrar o diálogo de avaliação
+//         botaoAvaliar.addEventListener('click', () => {
+//             mostrarDialogAvaliacao(nome);
+//         });
 
-    // Adicionar avaliações iniciais se não houver nenhuma
-    const nomesPratos = Array.from(menuItems).map(item => item.querySelector('h3').textContent);
-    popularAvaliacoesIniciais(nomesPratos);
-});
+//         // Encontrar o footer e inserir o botão antes do botão do carrinho
+//         const itemFooter = item.querySelector('.menu-item-footer');
+//         const botaoCarrinho = item.querySelector('.add-to-cart-btn');
 
+//         if (itemFooter && botaoCarrinho) {
+//             itemFooter.insertBefore(botaoAvaliar, botaoCarrinho);
+//         } else if (itemFooter) {
+//              // Se não houver botão do carrinho (ex: no admin), apenas adicione ao footer
+//             itemFooter.appendChild(botaoAvaliar);
+//         }
+            
+//         // Atualizar média inicial ao carregar a página
+//         atualizarMediaAvaliacoes(nome);
+//     });
+// });
+
+// Função para popular avaliações iniciais (apenas para demonstração)
 function popularAvaliacoesIniciais(nomesPratos) {
     // Use a lista de comentários mais detalhados e nomes comuns para as avaliações iniciais
     // Determine a categoria do prato
     const determinarCategoria = (nomePrato) => {
-        if (nomePrato.toLowerCase().includes('xis')) return 'Xis';
+        if (nomePrato.toLowerCase().includes('lanche')) return 'Lanche';
         if (nomePrato.toLowerCase().includes('cachorro-quente')) return 'Cachorro-Quente';
         if (nomePrato.toLowerCase().includes('porção') || nomePrato.toLowerCase().includes('batata')) return 'Porção';
         return 'Geral'; // Categoria padrão
@@ -318,6 +329,62 @@ function popularAvaliacoesIniciais(nomesPratos) {
     });
     localStorage.setItem('avaliacoes', JSON.stringify(avaliacoes));
 }
+
+// Exportar funções relevantes se necessário
+window.mostrarDialogAvaliacao = mostrarDialogAvaliacao;
+window.enviarAvaliacao = enviarAvaliacao;
+window.fecharDialogAvaliacao = fecharDialogAvaliacao;
+window.atualizarMediaAvaliacoes = atualizarMediaAvaliacoes;
+window.popularAvaliacoesIniciais = popularAvaliacoesIniciais;
+
+// Inicializar avaliações ao carregar a página
+// Este evento será chamado DEPOIS que o DOM for carregado
+document.addEventListener('DOMContentLoaded', () => {
+    // Podemos chamar popularAvaliacoesIniciais() aqui se quisermos
+    // que as avaliações de demonstração sejam adicionadas no carregamento inicial
+    // popularAvaliacoesIniciais(['Xis Salada', 'Cachorro Simples', 'Porção 200g']); // Exemplo
+
+    // Chamar a função de inicialização que adiciona botões e atualiza mídias
+    inicializarAvaliacoesNoMenu();
+});
+
+// Nova função para inicializar avaliações no menu (chamada após o menu ser renderizado)
+function inicializarAvaliacoesNoMenu() {
+     const menuItems = document.querySelectorAll('.menu-item');
+    menuItems.forEach(item => {
+        const nome = item.querySelector('h3').textContent;
+        
+        // Adicionar botão de avaliação
+        // Verificar se o botão já existe para evitar duplicação se a função for chamada múltiplas vezes
+        if (!item.querySelector('.avaliar-prato')) {
+            const botaoAvaliar = document.createElement('button');
+            botaoAvaliar.className = 'avaliar-prato';
+            botaoAvaliar.textContent = 'Avaliar';
+
+            // Adicionar evento de clique para mostrar o diálogo de avaliação
+            botaoAvaliar.addEventListener('click', () => {
+                mostrarDialogAvaliacao(nome);
+            });
+
+            // Encontrar o footer e inserir o botão antes do botão do carrinho
+            const itemFooter = item.querySelector('.menu-item-footer');
+            const botaoCarrinho = item.querySelector('.add-to-cart-btn');
+
+            if (itemFooter && botaoCarrinho) {
+                itemFooter.insertBefore(botaoAvaliar, botaoCarrinho);
+            } else if (itemFooter) {
+                 // Se não houver botão do carrinho (ex: no admin), apenas adicione ao footer
+                itemFooter.appendChild(botaoAvaliar);
+            }
+        }
+        
+        // Atualizar média inicial ao carregar a página
+        atualizarMediaAvaliacoes(nome);
+    });
+}
+
+// Expor a função de inicialização para ser chamada externamente (por exemplo, em main.js)
+window.inicializarAvaliacoesNoMenu = inicializarAvaliacoesNoMenu;
 
 // Função auxiliar para formatar a data de exibição (pode ser melhorada para "há X dias")
 function formatarDataAvaliacao(dataISO) {
