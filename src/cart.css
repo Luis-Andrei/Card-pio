@@ -410,6 +410,8 @@
 .welcome-dialog .dialog-content {
     text-align: center;
     max-width: 400px;
+    padding: 20px;
+    overflow-y: auto;
 }
 
 .welcome-dialog h3 {
@@ -449,6 +451,27 @@
 
 .welcome-dialog .confirm-btn:hover {
     background: #45a049;
+}
+
+/* Media Query para telas menores */
+@media (max-width: 480px) {
+    .welcome-dialog .dialog-content {
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    .welcome-form {
+        margin-bottom: 15px;
+    }
+
+    .welcome-form input {
+        padding: 10px;
+    }
+
+    .welcome-dialog .confirm-btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
 }
 
 /* Admin Panel Styles */
