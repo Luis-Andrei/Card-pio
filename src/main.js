@@ -72,42 +72,42 @@ if (ENABLE_ADMIN) {
             id: 7,
             name: 'Xis Salada',
             price: 25.00,
-            description: 'Pão, milho, ervilha, maionese, tomate, ovo, tempero verde, alface, catchup, mostarda, queijo, presunto e bife',
+            description: 'Pão, milho, ervilha, maionese, tomate, ovo, tempero verde, alface, ketchup, mostarda, queijo, presunto e bife',
             category: 'XIS'
         },
         {
             id: 8,
             name: 'Xis Frango',
             price: 26.00,
-            description: 'Pão, milho, ervilha, maionese, tomate, ovo, tempero verde, alface, catchup, mostarda, queijo, presunto e frango',
+            description: 'Pão, milho, ervilha, maionese, tomate, ovo, tempero verde, alface, ketchup, mostarda, queijo, presunto e frango',
             category: 'XIS'
         },
         {
             id: 9,
             name: 'Xis Calabresa',
             price: 28.00,
-            description: 'Pão, milho, ervilha, maionese, tomate, ovo, tempero verde, alface, catchup, mostarda, queijo, presunto e calabresa',
+            description: 'Pão, milho, ervilha, maionese, tomate, ovo, tempero verde, alface, ketchup, mostarda, queijo, presunto e calabresa',
             category: 'XIS'
         },
         {
             id: 10,
             name: 'Xis Bacon',
             price: 30.00,
-            description: 'Pão, milho, ervilha, maionese, tomate, ovo, tempero verde, alface, catchup, mostarda, queijo, presunto e bacon',
+            description: 'Pão, milho, ervilha, maionese, tomate, ovo, tempero verde, alface, ketchup, mostarda, queijo, presunto e bacon',
             category: 'XIS'
         },
         {
             id: 11,
             name: 'Xis Coração',
             price: 32.00,
-            description: 'Pão, milho, ervilha, maionese, tomate, ovo, tempero verde, alface, catchup, mostarda, queijo, presunto e coração',
+            description: 'Pão, milho, ervilha, maionese, tomate, ovo, tempero verde, alface, ketchup, mostarda, queijo, presunto e coração',
             category: 'XIS'
         },
         {
             id: 12,
             name: 'Xis Tudo',
             price: 32.00,
-            description: 'Pão, milho, ervilha, maionese, tomate, ovo, tempero verde, alface, catchup, mostarda, queijo, presunto, bife, frango, calabresa e coração',
+            description: 'Pão, milho, ervilha, maionese, tomate, ovo, tempero verde, alface, ketchup, mostarda, queijo, presunto, bife, frango, calabresa e coração',
             category: 'XIS'
         },
 
@@ -123,35 +123,35 @@ if (ENABLE_ADMIN) {
             id: 13,
             name: 'Cachorro Simples',
             price: 20.00,
-            description: 'Pão, molho de salsicha, catchup, mostarda, milho, ervilha, batata palha e tempero verde',
+            description: 'Pão, molho de salsicha, ketchup, mostarda, milho, ervilha, batata palha e tempero verde',
             category: 'CACHORRO-QUENTE'
         },
         {
             id: 14,
             name: 'Cachorro Duplo',
             price: 23.00,
-            description: 'Pão, molho de salsicha, catchup, mostarda, milho, ervilha, batata palha e tempero verde (2 salsichas)',
+            description: 'Pão, molho de salsicha, ketchup, mostarda, milho, ervilha, batata palha e tempero verde (2 salsichas)',
             category: 'CACHORRO-QUENTE'
         },
         {
             id: 15,
             name: 'Cachorro Frango',
             price: 26.00,
-            description: 'Pão, molho de salsicha, catchup, mostarda, milho, ervilha, batata palha e tempero verde',
+            description: 'Pão, molho de salsicha, ketchup, mostarda, milho, ervilha, batata palha e tempero verde',
             category: 'CACHORRO-QUENTE'
         },
         {
             id: 16,
             name: 'Cachorro Carne',
             price: 25.00,
-            description: 'Pão, molho de salsicha, catchup, mostarda, milho, ervilha, batata palha e tempero verde',
+            description: 'Pão, molho de salsicha, ketchup, mostarda, milho, ervilha, batata palha e tempero verde',
             category: 'CACHORRO-QUENTE'
         },
         {
             id: 17,
             name: 'Cachorro Calabresa',
             price: 27.00,
-            description: 'Pão, molho de salsicha, catchup, mostarda, milho, ervilha, batata palha e tempero verde',
+            description: 'Pão, molho de salsicha, ketchup, mostarda, milho, ervilha, batata palha e tempero verde',
             category: 'CACHORRO-QUENTE'
         },
 
@@ -167,7 +167,7 @@ if (ENABLE_ADMIN) {
             id: 20,
             name: 'Torrada com Ovo',
             price: 17.00,
-            description: 'Pao de Xis, Catchup, Mostarda, Milho, Ervilha, Tomate, Ovo, Tempero Verde',
+            description: 'Pao de Xis, Ketchup, Mostarda, Milho, Ervilha, Tomate, Ovo, Tempero Verde',
             category: 'ACOMPANHAMENTOS'
         },
 

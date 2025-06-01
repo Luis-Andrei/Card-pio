@@ -25,10 +25,11 @@ class AdminPanel {
 
             const checkPassword = () => {
                 console.log('Verificando senha...');
-                console.log('Senha digitada (input.value):', input.value);
+                const enteredPassword = input.value.trim();
+                console.log('Senha digitada (input.value):', enteredPassword);
                 console.log('Senha esperada (this.adminPassword):', this.adminPassword);
-                console.log('Comparação (input.value === this.adminPassword):', input.value === this.adminPassword);
-                if (input.value === this.adminPassword) {
+                console.log('Comparação (enteredPassword === this.adminPassword):', enteredPassword === this.adminPassword);
+                if (enteredPassword === this.adminPassword) {
                     this.closeDialog(dialog);
                     resolve(true);
                 } else {
